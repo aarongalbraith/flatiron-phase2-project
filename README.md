@@ -72,3 +72,11 @@ We explored interactions between the most powerful feature — square feet of li
 The final model had an R^2 value of 0.730, which means the model can explain 73.0% of the variation in price among the sales analyzed.
 
 We found an RMSE of $405,347 and an MAE of $225,997. These feel rather high.
+
+## Links to PDFs
+
+Find the notebook [here](https://github.com/aarongalbraith/flatiron-phase2-project/tree/main/deliverables/notebook.pdf)
+
+Find the presentation [here](https://github.com/aarongalbraith/flatiron-phase2-project/tree/main/deliverables/presentation.pdf)
+
+Find the github repository [here](https://github.com/aarongalbraith/flatiron-phase2-project/tree/main/deliverables/github.pdf)
