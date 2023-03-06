@@ -8,10 +8,9 @@ The Hazel Paisley Appraisal Corporation wishes to move into King County, Washing
 
 ### Business Understanding
 
-The Hazel Paisley Appraisal Corporation will benefit from a fast and reliable model. They are unfamiliar with the Seattle metro area and seek to learn what factors matter most in determining home values. As their appraisers become more familiar with the idiosyncracies of the housing market in King County they will add their own nuance to our formula.
+The Hazel Paisley Appraisal Corporation will benefit from a fast and reliable model. They are unfamiliar with the Seattle metro area and seek to learn what factors matter most in determining home values. As their appraisers become more familiar with the idiosyncracies of the housing market in King County they will add their own nuance to our formula. The purposes of this project will be to highlight the most important factors to include in a simple model that broadly approximates home values and indicates to the Hazel Paisley Appraisal Corporation what data they should focus on to better understand appraisal values in this region.
 
 ### Data Understanding
-#### The Data
 ##### Price
 
 Home prices from the initial data set varied from about $27,000 to over $30,000,000. This data skewed right, heavily affected by larger values. The median price was roughly $860,000 while the mean was close to $1,100,000.
@@ -40,15 +39,11 @@ The number of bathrooms and bedrooms were given, as were values for the view, gr
 
 #### New Features
 
-##### Simple Features
-
 We extracted values for the city and zip code for each listing from its address field.
 
 We also created "age" and "years since renovation" from the various associated fields. For homes that had *not* been renovated, their "years since renovation" value was simply the age of the home.
 
 We found average sale prices for each zip code and then grouped the zip codes into 8 "tiers" or "levels".
-
-##### Complex Features — Neighborhood Medians
 
 We created a distance function to generate "neighbor lists" for each listing. The distance function measured distance, in feet, between listings "as the crow flies". Starting with a radius of 250 feet, all the neighbors within that radius were gathered. If the size of this neighbor list did not fall between 15 and 40, then the radius would expand or contract to capture the desired number of neighbors for each listing.
 
@@ -74,6 +69,6 @@ We explored interactions between the most powerful feature — square feet of li
 
 ## Regression Results
 
-The final model 
+The final model had an R^2 value of 0.730, which means the model can explain 73.0% of the variation in price among the sales analyzed.
 
-
+We found an RMSE of $405,347 and an MAE of $225,997. These feel rather high.
