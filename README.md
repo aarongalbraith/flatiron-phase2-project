@@ -8,7 +8,7 @@ The Hazel Paisley Appraisal Corporation wishes to move into King County, Washing
 
 ### Business Understanding
 
-The Hazel Paisley Appraisal Corporation will benefit from a fast and reliable model. They are unfamiliar with the Seattle metro area and seek to learn what factors matter most in determining home values. As their appraisers become more familiar with the idiosyncracies of the housing market in King County they will add their own nuance to our formula. The purposes of this project will be to highlight the most important factors to include in a simple model that broadly approximates home values and indicates to the Hazel Paisley Appraisal Corporation what data they should focus on to better understand appraisal values in this region.
+The Hazel Paisley Appraisal Corporation will benefit from a fast and reliable model. They are unfamiliar with the Seattle metro area and seek to learn what factors matter most in determining home values. As their appraisers become more familiar with the idiosyncrasies of the housing market in King County they will add their own nuance to our formula. The purposes of this project will be to highlight the most important factors to include in a simple model that broadly approximates home values and indicates to the Hazel Paisley Appraisal Corporation what data they should focus on to better understand appraisal values in this region.
 
 ### Data Understanding
 ##### Price
@@ -19,7 +19,7 @@ Home prices from the initial data set varied from about $27,000 to over $30,000,
 
 We began with 30,155 records and 25 features. The data set supposedly contained records from King County, Washington, but cursory inspection revealed that a few hundred of the records were not even from Washington State. We used the latitude and longitude feature to make scatterplots of the data and further determine which records were in fact inside the boundaries of King County. Then we made some judgment calls to 1) *exclude* some records that were inside King County but clustered in a remote area far from the city of Seattle (and far from the rest of the data) and 2) *include* several records that were technically across the county line but still contiguous with many other records and worthy of comparison and analysis in our project. We dropped 972 records based on geographic location.
 
-The pared down records come from 51 unique cities and 76 zip codes.
+The pared down records come from 51 unique cities and 76 zip codes, as shown in the figure below.
 
 ![map of listings](images/map_of_listings.png)
 
@@ -67,11 +67,23 @@ We attempted to use log transformed features at several stages, but this never i
 
 We explored interactions between the most powerful feature — square feet of living area — and several other features. In the end we saw the most powerful interaction between this living area measurement and two others: waterfront and zip code levels.
 
+The interaction between zip code levels and living area can be seen below in the scatterplot of living area and price. The differently colored lines of fit correspond to different zip code levels. It is clear that the slopes of the lines differ in a regular pattern, strongly suggesting that the price per square foot depends on the price level of the surrounding area, i.e. its zip code level.
+
+![interaction of zip codes and living area](images/zip_interaction.png)
+
 ## Regression Results
 
 The final model had an R^2 value of 0.730, which means the model can explain 73.0% of the variation in price among the sales analyzed.
 
 We found an RMSE of $405,347 and an MAE of $225,997. These feel rather high.
+
+## Recommendations
+
+In calculating appraisals, we recommend two key parts of the formula to follow:
+
+1. Starting from a baseline of $806,800, add (or subtract) 64 cents for every $1 that the median home value (nearest 20-30 recent listings) exceeds (or falls short of) $1 million.
+
+2. Starting from a baseline of $806,800, add (or subtract) $60 per zip code level for every square foot that the home’s living area exceeds (or falls short of) 2,000 square feet.
 
 ## Links to PDFs
 
